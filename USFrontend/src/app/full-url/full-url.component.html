@@ -1,0 +1,19 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100 p-4">
+    <div class="max-w-3xl w-full bg-white shadow-lg rounded-lg p-8">
+      <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">URL Info</h1>
+  
+      <div *ngIf="urlInfo; else loadingTemplate">
+        <div class="space-y-4">
+          <p class="text-lg"><strong class="font-medium text-blue-600">Original URL:</strong> {{ urlInfo.originalUrl }}</p>
+          <p class="text-lg"><strong class="font-medium text-blue-600">Shortened URL:</strong> {{ urlInfo.shortenedUrl }}</p>
+          <p class="text-lg"><strong class="font-medium text-blue-600">Created On:</strong> {{ urlInfo.createdDate}}</p>
+          <p class="text-lg"><strong class="font-medium text-blue-600">User:</strong> {{ urlInfo.createdBy }}</p>
+        </div>
+      </div>
+  
+      <ng-template #loadingTemplate>
+        <div class="text-center text-lg text-gray-500">Loading URL info...</div>
+      </ng-template>
+    </div>
+  </div>
+  

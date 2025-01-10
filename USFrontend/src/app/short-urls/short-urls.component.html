@@ -1,0 +1,30 @@
+<div *ngIf="this.authService.loggedIn" class="flex justify-center mt-4">
+    <input [(ngModel)]="newUrl" placeholder="Enter a URL" class="p-2 border border-gray-300 rounded" />
+    <button (click)="addUrl()" class="ml-2 bg-blue-500 text-white py-2 px-4 rounded">Add URL</button>
+</div>
+
+<div *ngIf="errorMessage" class="text-red-500 text-center mt-2">
+    {{ errorMessage }}
+</div>
+
+<div class="flex justify-center">
+    <table class="min-w-[40%] table-auto border-collapse">
+        <thead>
+            <tr class="border-b">
+                <th class="py-2 px-4 text-left">Original URL</th>
+                <th class="py-2 px-4 text-left">Shortened URL</th>
+                <th *ngIf="this.authService.loggedIn" class="py-2 px-4 text-left">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let url of shortUrls">
+                <td class="py-2 px-4">{{ url.originalUrl }}</td>
+                <td class="py-2 px-4">{{ url.shortenedUrl }}</td>
+                <td *ngIf="this.authService.loggedIn" class="py-2 px-4">
+                    <button (click)="showInfo(url.id)" class="bg-blue-500 text-white py-1 px-2 rounded">Info</button>
+                    <button (click)="deleteUrl(url.id)" class="bg-red-500 text-white py-1 px-2 rounded">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
