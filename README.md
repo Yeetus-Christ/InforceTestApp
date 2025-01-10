@@ -10,7 +10,16 @@
 }
 ```
 
-After that, you can start the API.
+After that, you can start the API. Database comes with 2 preexisting users:
+
+```
+username: admin;
+password: string;
+```
+```
+username: user;
+password: string;
+```
 
 ## Frontend
 
